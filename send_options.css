@@ -1,0 +1,194 @@
+:root {
+    /* To encode icons back to svg file paste string "..." to 'Take encoded:' field here https://yoksel.github.io/url-encoder/ */
+    --icon-calendar: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='rgb(127,127,127)' fill-rule='evenodd' d='M11.33 1.33a.67.67 0 0 0-1.33 0V2H6v-.67a.66.66 0 1 0-1.33 0V2H3.33a2 2 0 0 0-2 2v9.33c0 1.1.9 2 2 2h9.34a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1.34v-.67Zm2 4.67V4c0-.37-.3-.67-.66-.67h-1.34V4A.67.67 0 0 1 10 4v-.67H6V4a.67.67 0 0 1-1.33 0v-.67H3.33c-.36 0-.66.3-.66.67v2h10.67ZM2.68 7.33h10.67v6c0 .37-.3.67-.67.67H3.33a.67.67 0 0 1-.66-.67v-6Z' clip-rule='evenodd'/%3e%3c/svg%3e");
+
+    --icon-radio-on: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cg clip-path='url(%23a)'%3e%3cpath fill='black' d='M8 11.6c1 0 1.85-.35 2.55-1.05.7-.7 1.05-1.55 1.05-2.55 0-1-.35-1.85-1.05-2.55A3.47 3.47 0 0 0 8 4.4c-1 0-1.85.35-2.55 1.05C4.75 6.15 4.4 7 4.4 8c0 1 .35 1.85 1.05 2.55.7.7 1.55 1.05 2.55 1.05Zm0 3.6a7.02 7.02 0 0 1-5.09-2.1A7.26 7.26 0 0 1 .81 8a7 7 0 0 1 2.1-5.09 7.26 7.26 0 0 1 5.1-2.1 7 7 0 0 1 5.08 2.1 7.29 7.29 0 0 1 2.11 5.1 7.02 7.02 0 0 1-2.1 5.08A7.29 7.29 0 0 1 8 15.2Zm0-1.35c1.63 0 3-.57 4.14-1.7A5.64 5.64 0 0 0 13.85 8c0-1.62-.57-3-1.7-4.14A5.64 5.64 0 0 0 8 2.16c-1.62 0-3 .56-4.14 1.7A5.64 5.64 0 0 0 2.16 8c0 1.63.56 3 1.7 4.14A5.64 5.64 0 0 0 8 13.85Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='white' d='M0 0h16v16H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+    --icon-radio-off: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cg clip-path='url(%23a)'%3e%3cpath fill='black' d='M8 15.2a7.02 7.02 0 0 1-5.09-2.1A7.26 7.26 0 0 1 .81 8a7 7 0 0 1 2.1-5.09 7.26 7.26 0 0 1 5.1-2.1 7 7 0 0 1 5.08 2.1 7.29 7.29 0 0 1 2.11 5.1 7.02 7.02 0 0 1-2.1 5.08A7.29 7.29 0 0 1 8 15.2Zm0-1.35c1.63 0 3-.57 4.14-1.7A5.64 5.64 0 0 0 13.85 8c0-1.62-.57-3-1.7-4.14A5.64 5.64 0 0 0 8 2.16c-1.62 0-3 .56-4.14 1.7A5.64 5.64 0 0 0 2.16 8c0 1.63.56 3 1.7 4.14A5.64 5.64 0 0 0 8 13.85Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='white' d='M0 0h16v16H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+}
+
+.icon-calendar {
+    mask-image: var(--icon-calendar);
+    -webkit-mask-image: var(--icon-calendar);
+}
+
+.context_popover {
+    background: hsl(240, 20%, 98%);
+    border: 1px solid #4D4D4D;
+    border-radius: 6px;
+    box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.15), 0px 5px 8px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .context_popover {
+    background-color: hsl(240, 5%, 12%);
+    border: 1px solid black;
+    box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.35), 0px 5px 8px rgba(0, 0, 0, 0.32), 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.send_options_menu {
+    position: absolute;
+    bottom: 36px;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.send_options_menu._open {
+    display: flex;
+}
+
+
+/* Responsivity small */
+@media (max-width: 640px) {
+    .send_options_menu {
+        right: 16px;
+        bottom: 68px;
+    }
+}
+
+ul.context-menu {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+}
+
+ul.context-menu .mobile_only {
+    display: none;
+}
+
+ul.context-menu li.context-menu__separator {
+    padding: 0;
+    margin: 4px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dark ul.context-menu li.context-menu__separator {
+    border-top: 1px solid rgb(0, 0, 0);
+}
+
+ul.context-menu li {
+    font-family: var(--font-ss3);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 134%;
+    color: #262626;
+    padding: 3px 10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.dark ul.context-menu li {
+    color: hsl(0, 0%, 70%);
+}
+
+ul.context-menu li:hover,
+ul.context-menu li._active {
+    background-color: rgba(11, 12, 14, 0.05);
+}
+
+ul.context-menu li:active {
+    background-color: rgba(11, 12, 14, 0.07);
+}
+
+.dark ul.context-menu li:hover,
+.dark ul.context-menu li._active {
+    background-color: hsla(220, 12%, 95%, 0.051);
+}
+
+.dark ul.context-menu li:active {
+    background-color: hsla(220, 12%, 95%, 0.07);
+}
+
+.context-menu li {
+    padding: 3px 10px 3px 8px;
+    display: flex;
+}
+
+.context-menu li .context-menu__icon {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.context-menu li .context-menu__icon {
+    margin-top: 1px;
+}
+
+.context-menu__radio input[type="radio"],
+.context-menu__radio label {
+    color: #262626;
+    pointer-events: none;
+    /*so it don't take over menu hover/active */
+}
+
+.dark .context-menu__radio input[type="radio"],
+.dark .context-menu__radio label {
+    color: hsl(0, 0%, 70%);
+    font-family: var(--font-ss3);
+}
+
+.context-menu__radio label {
+    white-space: nowrap;
+}
+
+.context-menu__radio input[type="radio"] {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin: 2px 4px 0 0;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-color: currentColor;
+    mask-image: var(--icon-radio-off);
+    -webkit-mask-image: var(--icon-radio-off);
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+.context-menu__radio input[type="radio"]:checked {
+    mask-image: var(--icon-radio-on);
+    -webkit-mask-image: var(--icon-radio-on);
+    background-color: hsla(217, 100%, 60%, 1)
+}
+
+.context-menu small {
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.context-menu kbd {
+    font-family: var(--font-ss3);
+    display: inline-block;
+    color: hsla(0, 0%, 40%, 1);
+    border: 1px solid hsla(0, 0%, 40%, 0.5);
+    padding: 2px 5px;
+    font-size: 14px;
+    line-height: 100%;
+    border-radius: 3px;
+}
+
+.context-menu kbd+kbd {
+    margin-left: 0.2em;
+}
+
+.dark .context-menu kbd {
+    color: hsla(0, 0%, 60%, 1);
+    border: 1px solid hsla(0, 0%, 60%, 0.5);
+}
+
+.context-menu small kbd {
+    font-size: 12px;
+    padding: 1px 4px;
+}
+
+.context-menu input[type="radio"]:checked+label kbd {
+    color: hsla(217, 100%, 60%, 1);
+    border: 1px solid hsla(217, 100%, 60%, 0.5);
+}
