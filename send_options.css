@@ -12,16 +12,16 @@
 }
 
 .context_popover {
-    background: hsl(240, 20%, 98%);
-    border: 1px solid #4D4D4D;
+    background: white;
+    border: 1px solid hsla(0, 0%, 0%, 0.4);
     border-radius: 6px;
-    box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.15), 0px 5px 8px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 41px 80px rgba(0, 0, 0, 0.13), 0px 18.7257px 35.4802px rgba(0, 0, 0, 0.0935136), 0px 12.177px 21.4737px rgba(0, 0, 0, 0.0856364), 0px 8.4377px 13.9271px rgba(0, 0, 0, 0.0810408), 0px 5.51132px 8.57828px rgba(0, 0, 0, 0.0746815), 0px 2.77984px 4.11293px rgba(0, 0, 0, 0.0605595);
 }
 
 .dark .context_popover {
-    background-color: hsl(240, 5%, 12%);
+    background-color: hsl(0, 0%, 17%);
     border: 1px solid black;
-    box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.35), 0px 5px 8px rgba(0, 0, 0, 0.32), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 41px 80px rgba(0, 0, 0, 0.13), 0px 18.7257px 35.4802px rgba(0, 0, 0, 0.0935136), 0px 12.177px 21.4737px rgba(0, 0, 0, 0.0856364), 0px 8.4377px 13.9271px rgba(0, 0, 0, 0.0810408), 0px 5.51132px 8.57828px rgba(0, 0, 0, 0.0746815), 0px 2.77984px 4.11293px rgba(0, 0, 0, 0.0605595);
 }
 
 .send_options_menu {
@@ -64,7 +64,7 @@ ul.context-menu li.context-menu__separator {
 }
 
 .dark ul.context-menu li.context-menu__separator {
-    border-top: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgba(0, 0, 0, 0.4)
 }
 
 ul.context-menu li {
@@ -73,32 +73,32 @@ ul.context-menu li {
     font-weight: 400;
     font-size: 15px;
     line-height: 134%;
-    color: #262626;
+    color: hsl(0, 0%, 15%);
     padding: 3px 10px;
     user-select: none;
     cursor: pointer;
 }
 
 .dark ul.context-menu li {
-    color: hsl(0, 0%, 70%);
+    color: hsl(0, 0%, 80%);
 }
 
 ul.context-menu li:hover,
 ul.context-menu li._active {
-    background-color: rgba(11, 12, 14, 0.05);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 ul.context-menu li:active {
-    background-color: rgba(11, 12, 14, 0.07);
+    background-color: rgba(0, 0, 0, 0.06);
 }
 
 .dark ul.context-menu li:hover,
 .dark ul.context-menu li._active {
-    background-color: hsla(220, 12%, 95%, 0.051);
+    background-color: hsla(0, 0%, 100%, 0.04)
 }
 
 .dark ul.context-menu li:active {
-    background-color: hsla(220, 12%, 95%, 0.07);
+    background-color: hsla(0, 0%, 100%, 0.06)
 }
 
 .context-menu li {
@@ -129,7 +129,7 @@ ul.context-menu li:active {
 
 .dark .context-menu__radio input[type="radio"],
 .dark .context-menu__radio label {
-    color: hsl(0, 0%, 70%);
+    color: hsl(0, 0%, 80%);
     font-family: var(--font-ss3);
 }
 
@@ -179,8 +179,8 @@ ul.context-menu li:active {
 }
 
 .dark .context-menu kbd {
-    color: hsla(0, 0%, 60%, 1);
-    border: 1px solid hsla(0, 0%, 60%, 0.5);
+    color: hsla(0, 0%, 65%, 1);
+    border: 1px solid hsla(0, 0%, 65%, 0.5);
 }
 
 .context-menu small kbd {
