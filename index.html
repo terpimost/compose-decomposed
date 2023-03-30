@@ -14,6 +14,7 @@
   <link href="general.css" rel="stylesheet" type="text/css" />
   
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="banners.css" rel="stylesheet" type="text/css" />
   <link href="typeaheads.css" rel="stylesheet" type="text/css" />
   <link href="send_options.css" rel="stylesheet" type="text/css" />
 
@@ -220,6 +221,8 @@
     <!-- open -->
     <div class="compose-container">
       <div class="compose-banner-container">
+        
+        <!-- related to banners.css -->
         <div id="compose_banner_success" class="banner _success">
           <span>
             <strong>Sent!</strong> Your message is <b>outside</b> your current narrow. Narrow to <a href="zulip.com">#stream>topic</a>
@@ -249,6 +252,9 @@
           <button class="icon-button button-close" onclick="onCloseBannerClick('compose_banner_error')"><i class="icon-cross"></i></button>
         </div>
       </div>
+
+
+      
 
       <div id="compose_to_container_bottom" class="compose-to-container">
         <button class="compose-to__stream" onclick="onComposeToStreamClick()">

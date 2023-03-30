@@ -1,0 +1,316 @@
+:root{
+    --icon-cross: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M14.47 2.47a.67.67 0 0 0-.94-.94L8 7.06 2.47 1.53a.67.67 0 0 0-.94.94L7.06 8l-5.53 5.53a.67.67 0 0 0 .94.94L8 8.94l5.53 5.53a.66.66 0 1 0 .94-.94L8.94 8l5.53-5.53Z'/%3e%3c/svg%3e");
+}
+
+.compose-container .banner {
+    position: relative;
+    font-family: var(--font-ss3);
+    font-size: 15px;
+    line-height: 120%;
+    margin: 7px 158px 0 8px;
+    border: 1px solid transparent;
+    padding: 9px 40px 9px 13px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: hsla(0, 0%, 15%, 1);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    gap: 6px;
+}
+
+.compose-container .banner {
+    display: none;
+}
+
+.compose-container .banner._open {
+    display: flex;
+}
+
+.dark .compose-container .banner {
+    color: hsla(0, 0%, 100%, 0.8);
+}
+
+
+.banner a,
+.banner a:link,
+.banner a:visited {
+    color: hsla(200, 100%, 36%, 1);
+    text-decoration-color: hsla(200, 100%, 36%, 0.3);
+    text-decoration-style: solid;
+    text-underline-offset: 2px;
+}
+
+.banner a:hover {
+    color: hsla(200, 100%, 33%, 1);
+    text-decoration-color: hsla(200, 100%, 33%, 0.7);
+}
+
+.banner a:active {
+    color: hsla(200, 100%, 30%, 1);
+    text-decoration-color: hsla(200, 100%, 30%, 1);
+}
+
+.dark .banner a,
+.dark .banner a:link,
+.dark .banner a:visited {
+    color: hsla(200, 100%, 50%, 1);
+    text-decoration-color: hsla(200, 100%, 50%, 0.3);
+}
+
+.dark .banner a:hover {
+    color: hsla(200, 100%, 66%, 1);
+    text-decoration-color: hsla(200, 100%, 66%, 0.7);
+}
+
+.dark .banner a:active {
+    color: hsla(200, 100%, 55%, 1);
+    text-decoration-color: hsla(200, 100%, 55%, 0.7);
+}
+
+.compose-container .banner .icon-button {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    border: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.icon-cross {
+    background-color: currentColor;
+    mask-image: var(--icon-cross);
+    -webkit-mask-image: var(--icon-cross);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+
+.button-close .icon-cross {
+    opacity: 0.5;
+}
+
+.button-close:hover .icon-cross {
+    opacity: 1;
+}
+
+.button-close:active .icon-cross {
+    opacity: 0.75;
+}
+
+.banner button {
+    border: none;
+    padding: 5px 10px;
+    font-family: var(--font-ss3);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: inherit;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    user-select: none;
+}
+
+
+.compose-container .banner._success {
+    background: #E1F3E9;
+    border: 1px solid rgba(27, 100, 60, 0.4);
+    color: hsla(147, 57%, 25%, 1);
+}
+
+.banner._success button {
+    background-color: hsla(147, 57%, 25%, 0.1);
+}
+
+.banner._success button:hover {
+    background-color: hsla(147, 57%, 25%, 0.15);
+}
+
+.banner._success button:active {
+    background-color: hsla(147, 57%, 25%, 0.19);
+}
+
+.compose-container .banner._info {
+    background: #DDECF6;
+    border: 1px solid rgba(38, 81, 110, 0.4);
+    color: hsla(204, 49%, 29%, 1);
+}
+
+.banner._info button {
+    background-color: hsla(204, 49%, 29%, 0.1);
+}
+
+.banner._info button:hover {
+    background-color: hsla(204, 49%, 29%, 0.15);
+}
+
+.banner._info button:active {
+    background-color: hsla(204, 49%, 29%, 0.19);
+}
+
+.compose-container .banner._warning {
+    background: #FAF5DC;
+    border: 1px solid rgba(100, 78, 39, 0.4);
+    color: hsla(38, 44%, 27%, 1);
+}
+
+.banner._warning button {
+    background-color: hsla(38, 44%, 27%, 0.1);
+}
+
+.banner._warning button:hover {
+    background-color: hsla(38, 44%, 27%, 0.15);
+}
+
+.banner._warning button:active {
+    background-color: hsla(38, 44%, 27%, 0.19);
+}
+
+.compose-container .banner._error {
+    background: #EFDFDE;
+    border: 1px solid rgba(132, 41, 36, 0.4);
+    color: hsla(3, 57%, 33%, 1);
+}
+
+.banner._error button {
+    background-color: hsla(3, 57%, 33%, 0.1);
+}
+
+.banner._error button:hover {
+    background-color: hsla(3, 57%, 33%, 0.15);
+}
+
+.banner._error button:active {
+    background-color: hsla(3, 57%, 33%, 0.19);
+}
+
+
+.dark .compose-container .banner._success {
+    background: #002912;
+    border: 1px solid rgba(74, 191, 130, 0.4);
+    color: hsla(147, 51%, 55%, 1);
+}
+
+.dark .banner._success button {
+    background-color: hsla(147, 51%, 55%, 0.1);
+}
+
+.dark .banner._success button:hover {
+    background-color: hsla(147, 51%, 55%, 0.15);
+}
+
+.dark .banner._success button:active {
+    background-color: hsla(147, 51%, 55%, 0.19);
+}
+
+.dark .compose-container .banner._info {
+    background: #00253D;
+    border: 1px solid rgba(130, 184, 222, 0.4);
+    color: hsla(205, 58%, 69%, 1);
+}
+
+.dark .banner._info button {
+    background-color: hsla(205, 58%, 69%, 0.1);
+}
+
+.dark .banner._info button:hover {
+    background-color: hsla(205, 58%, 69%, 0.15);
+}
+
+.dark .banner._info button:active {
+    background-color: hsla(205, 58%, 69%, 0.19);
+}
+
+.dark .compose-container .banner._warning {
+    background: hsl(50, 100%, 11%);
+    border: 1px solid hsla(44, 44%, 66%, 0.4);
+    color: hsla(50, 45%, 61%, 1);
+}
+
+.dark .banner._warning button {
+    background-color: hsla(50, 45%, 61%, 0.1);
+}
+
+.dark .banner._warning button:hover {
+    background-color: hsla(50, 45%, 61%, 0.15);
+}
+
+.dark .banner._warning button:active {
+    background-color: hsla(50, 45%, 61%, 0.19);
+}
+
+.dark .compose-container .banner._error {
+    background: #4F1414;
+    border: 1px solid hsla(3, 73%, 74%, 0.4);
+    color: hsla(3, 73%, 74%, 1);
+}
+
+.dark .banner._error button {
+    background-color: hsla(3, 73%, 74%, 0.1);
+}
+
+.dark .banner._error button:hover {
+    background-color: hsla(3, 73%, 74%, 0.15);
+}
+
+.dark .banner._error button:active {
+    background-color: hsla(3, 73%, 74%, 0.19);
+}
+
+.banner button.button-close,
+.dark .banner button.button-close {
+    background-color: transparent;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    margin: 0;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+}
+
+.banner button.button-close:hover,
+.dark .banner button.button-close:hover {
+    background-color: transparent;
+}
+
+.banner button.button-close:active,
+.dark .banner button.button-close:active {
+    background-color: transparent;
+}
+
+
+/* Responsivity medium */
+@media (max-width: 940px) {
+    .compose-container .banner {
+      margin-right: 76px;
+      /*8+68*/
+    }
+}
+
+
+/* Responsivity small */
+@media (max-width: 640px) {
+    .compose-container .banner {
+      margin-right: 46px;
+      /*8+38*/
+    }
+}
+  
