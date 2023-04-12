@@ -13,14 +13,7 @@
   --icon-right-arr: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' viewBox='0 0 12 8'%3e%3cpath fill='rgb(127,127,127)' d='M12 4 3 .54v6.92L12 4Z'/%3e%3c/svg%3e");
 }
 
-.compose-container ::selection {
-  background: hsla(215, 85%, 70%, 0.4);
-}
 
-.dark .compose-container ::selection {
-  background: hsla(215, 60%, 50%, 0.5);
-  color: hsl(264, 5%, 95%);
-}
 
 .compose-area {
   position: fixed;
@@ -34,9 +27,10 @@
   /* this cuts shadows, so we going to use paddings in deeper containers padding: 7px 8px; */
   display: flex;
   max-height: 50vh;
-  transition-property: height, max-height;
+  transition-property: max-height;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
+  
 }
 
 .dark .compose-area {
@@ -48,7 +42,7 @@
 
 .compose-area._open._enlarged {
   height: 50vh;
-  transition: max-height 0.15s ease-out;
+  /* animation to this state is made via js and _enlarget class is set via setTimeout */
 }
 
 .compose-area._open._maximized {
@@ -57,6 +51,7 @@
   transition: max-height 0.15s ease-out;
 }
 
+/* closed compose box has styles with start prefix */
 
 .compose-start-container {
   display: flex;
@@ -176,6 +171,13 @@
 .dark .compose-to-topic__new-topic {
   color: hsl(231deg 30% 65%);
 }
+
+
+
+
+
+
+
 
 input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
   white-space: nowrap;
@@ -367,6 +369,16 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .compose-container {
   display: none;
+}
+
+.compose-container ::selection {
+  background: hsla(215, 85%, 70%, 0.4);
+  color: hsl(264, 0%, 0%);
+}
+
+.dark .compose-container ::selection {
+  background: hsla(215, 60%, 50%, 0.5);
+  color: hsl(264, 5%, 95%);
 }
 
 .compose-area._open .compose-container {
@@ -710,12 +722,6 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .dark .compose-to__topic-input {
   background-color: transparent;
   color: hsl(0deg 0% 100% / 80%);
-}
-
-.dark .compose-to__topic-input::selection,
-.dark .compose-body__editor-input::selection {
-  color: white;
-  background-color: hsla(227, 30%, 37%, 1);
 }
 
 .compose-to__topic-input::placeholder {

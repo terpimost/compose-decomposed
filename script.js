@@ -182,12 +182,40 @@ function onComposeBodyEditorInputChange(event) {
 function onComposeBodyEditorExpand(event) {
   const area = document.getElementById('bottom_compose_area')
   if (area.classList.contains('_maximized')){  //minimizing
-    area.classList.remove('_maximized')
+    // we want to animate height, but the end height is unknown
+    // we are going to do the best attempt by animating maxHeight down to 50vh
+    area.animate([
+      {'maxHeight':'calc(100vh - 42px)' },
+      {'maxHeight':'50vh' },
+    ],{
+      duration: 100,
+      'animation-fill-mode':'forwards'
+    })
+    setTimeout(()=>{
+      area.classList.remove('_maximized')
+    },100)
   } else if(area.classList.contains('_enlarged')){ //maximizing
     area.classList.remove('_enlarged') 
     area.classList.add('_maximized') 
   } else { //enlarging
-    area.classList.add('_enlarged') 
+    // before adding _enlarged class we want to animate height
+    // but browser can't animate it from an unknon state, so we are going to animate it via js 
+    // and finish with setting the same value via css with _enlarged
+    const vh50 = window.innerHeight/2
+    const areaCurrentHeight = area.clientHeight
+    area.animate([
+      {'height':areaCurrentHeight+'px' },
+      {'height':vh50+'px' },
+    ],{
+      duration: 150,
+      'animation-fill-mode':'forwards'
+    })
+    // area.style.maxHeight = areaCurrentHeight+'px' //we are animationg maxHeight
+    // 
+    setTimeout(()=>{
+      area.classList.add('_enlarged')
+    },150) //duration of the animation for height transition in css
+     
   }
 }
 
