@@ -9,6 +9,7 @@ function onComposeStart() {
 
 function onDocumentResize() {
   updateEditorButtonsScrollShadows()
+  onComposeHeightChange()
 }
 
 function onComposeClose() {
@@ -176,7 +177,7 @@ function onComposeBodyEditorInputChange(event) {
     document.getElementById('compose_banner_warning').classList.remove('_open') //banner demo
     document.getElementById('compose_banner_error').classList.remove('_open') //banner demo
   }
-
+  onComposeHeightChange()
 }
 
 function onComposeBodyEditorExpand(event) {
@@ -193,11 +194,17 @@ function onComposeBodyEditorExpand(event) {
     })
     setTimeout(()=>{
       area.classList.remove('_maximized')
+      onComposeHeightChange()
     },100)
-  } else if(area.classList.contains('_enlarged')){ //maximizing
+  } else if(
+    area.classList.contains('_enlarged') 
+    || area.classList.contains('_almost_enlarged') 
+  ){ //maximizing
     area.classList.remove('_enlarged') 
+    area.classList.remove('_almost_enlarged')
     area.classList.add('_maximized') 
   } else { //enlarging
+    area.classList.remove('_almost_enlarged')
     // before adding _enlarged class we want to animate height
     // but browser can't animate it from an unknon state, so we are going to animate it via js 
     // and finish with setting the same value via css with _enlarged
@@ -216,6 +223,25 @@ function onComposeBodyEditorExpand(event) {
       area.classList.add('_enlarged')
     },150) //duration of the animation for height transition in css
      
+  }
+}
+
+//we should track size of the area and switch enlargement button
+//otherwise we might be in a situation what we enlarging content area
+//but the change isn't visible since the area already grew to such size
+const ALMOST_ENLRGED_COMPOSE_HEIGHT_DELTA = 20
+function onComposeHeightChange(){
+  const area = document.getElementById('bottom_compose_area')
+  if (!area.classList.contains('_maximized') && !area.classList.contains('_enlarged')){ 
+    // we only care for the case when it is not maximized or enlarged
+    // but grew close to _enlarged, which is 50vh
+    const vh50 = window.innerHeight/2
+    const areaCurrentHeight = area.clientHeight
+    if( vh50-areaCurrentHeight <= ALMOST_ENLRGED_COMPOSE_HEIGHT_DELTA ){ //the basic line height is 19px
+      area.classList.add('_almost_enlarged')
+    }else{
+      area.classList.remove('_almost_enlarged')
+    }
   }
 }
 

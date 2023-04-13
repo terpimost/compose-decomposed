@@ -1231,11 +1231,14 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .compose-area._enlarged .compose-body__editor .editor-expand__icon-enlarge,
-.compose-area._enlarged .compose-body__editor .editor-expand__icon-minimize {
+.compose-area._enlarged .compose-body__editor .editor-expand__icon-minimize,
+.compose-area._almost_enlarged .compose-body__editor .editor-expand__icon-enlarge,
+.compose-area._almost_enlarged .compose-body__editor .editor-expand__icon-minimize  {
   display: none;
 }
 
-.compose-area._enlarged .compose-body__editor .editor-expand__icon-maximize {
+.compose-area._enlarged .compose-body__editor .editor-expand__icon-maximize,
+.compose-area._almost_enlarged .compose-body__editor .editor-expand__icon-maximize{
   display: block;
 }
 
