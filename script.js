@@ -217,11 +217,9 @@ function onComposeBodyEditorExpand(event) {
       duration: 150,
       'animation-fill-mode':'forwards'
     })
-    // area.style.maxHeight = areaCurrentHeight+'px' //we are animationg maxHeight
-    // 
     setTimeout(()=>{
       area.classList.add('_enlarged')
-    },150) //duration of the animation for height transition in css
+    },150) //duration of the animation for height transition
      
   }
 }
