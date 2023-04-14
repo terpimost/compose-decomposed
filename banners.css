@@ -8,7 +8,7 @@
     font-family: var(--font-ss3);
     font-size: 15px;
     line-height: 120%;
-    margin: 7px 158px 0 8px;
+    margin: 7px 130px 0 8px;
     border: 1px solid transparent;
     padding: 9px 40px 9px 13px;
     box-sizing: border-box;
@@ -34,6 +34,39 @@
 
 .dark .compose-container .banner {
     color: hsla(0, 0%, 100%, 0.8);
+}
+
+
+.compose-banner-container {
+    overflow: auto;
+    max-height: max(25vh, 240px);
+    flex-shrink: 0;
+    scrollbar-width: thin;
+}
+
+.compose-banner-container::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 12px;
+  }
+  
+.compose-banner-container::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 12px;
+    border: 2px solid hsl(231, 41%, 90%);
+}
+
+.compose-banner-container::-webkit-scrollbar-track {
+    background: hsl(231, 41%, 90%);
+    border-radius: 12px;
+}
+
+.dark .compose-banner-container::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 40%);
+    border-color: hsl(227deg 10% 9%);
+}
+
+.dark .compose-banner-container::-webkit-scrollbar-track {
+    background: hsl(227deg 10% 9%)
 }
 
 
