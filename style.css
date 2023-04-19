@@ -34,7 +34,7 @@
 }
 
 .dark .compose-area {
-  background: hsl(227deg 10% 9%);
+  background: hsl(231deg 10% 16%);
   border: 1px solid black;
   border-bottom: none;
 }
@@ -98,32 +98,30 @@
 }
 
 .dark .compose-start {
-  background: hsl(225, 10%, 13%);
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  background: hsl(231, 10%, 10%);
   border: 1px solid black;
   color: hsl(0deg 0% 100% / 65%);
-  transition: border 120ms linear;
+  transition: all 120ms linear;
 }
 
 .dark .compose-start:hover {
-  background: hsl(220, 10%, 14%);
+  background: hsl(231, 10%, 8%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: hsl(0deg 0% 100% / 70%);
 }
 
 .dark .compose-start:active {
-  background: hsl(225, 10%, 13%);
+  transition: none;
+  background: hsl(231, 10%, 7%);
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: hsl(0deg 0% 100% / 80%);
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
-  transition: none;
 }
 
 .dark .compose-start:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
 }
-
 
 .compose-start__label {
   flex-grow: 1;
@@ -215,7 +213,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .dark .compose-to-topic__new-topic:hover,
 .dark .compose-to-topic__new-topic:focus-visible {
   color: hsl(231deg 30% 70%);
-  border: 2px solid hsl(225, 10%, 14%);
+  border: 2px solid hsl(231, 10%, 8%);
   background: hsl(235deg 100% 70% / 11%)
 }
 
@@ -228,7 +226,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .dark .compose-start__new-topic:active,
 .dark .compose-to-topic__new-topic:active {
   color: hsl(231deg 30% 80%);
-  border: 2px solid hsl(225, 10%, 13%);
+  border: 2px solid hsl(231, 10%, 7%);
   background: hsl(235deg 100% 70% / 18%);
 }
 
@@ -420,7 +418,8 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-to__stream {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), hsl(225, 10%, 14%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%), 
+    hsl(231, 10%, 11%);
   border: 1px solid black;
   color: hsl(0deg 0% 100% / 75%);
   transition: border 120ms linear;
@@ -514,7 +513,8 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-to__stream:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 100%), hsl(220, 10%, 14%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%), 
+    hsl(231, 10%, 9%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: hsl(0deg 0% 100% / 80%);
 }
@@ -525,7 +525,8 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .dark .compose-to__stream:active {
   transition: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), hsl(225, 10%, 14%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%),
+    hsl(231, 10%, 8.5%);
   color: hsl(0deg 0% 100% / 75%);
 }
 
@@ -588,7 +589,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .dark .compose-to__jump-to {
   color: hsla(220, 100%, 95%, 1);
   background: hsla(227, 100%, 70%, 0.2);
-  box-shadow: inset 0 0 2px 0px black;
+  box-shadow: inset 0 0 0 1px black;
 }
 
 .compose-to__jump-to._hidden {
@@ -660,10 +661,10 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .dark .compose-to__topic,
 .dark .compose-to__dm {
-  background: hsl(225, 10%, 13%);
+  transition: all 120ms linear;
+  background: hsl(231, 10%, 10%);
   border: 1px solid black;
   color: hsl(0deg 0% 100% / 80%);
-  transition: border 120ms linear;
 }
 
 .compose-to-container._dm .compose-to__topic {
@@ -677,7 +678,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .dark .compose-to__topic:hover,
 .dark .compose-to__dm:hover {
-  background: hsl(220, 10%, 14%);
+  background: hsl(231, 10%, 8%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: hsl(0deg 0% 100% / 80%);
 }
@@ -694,8 +695,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .dark .compose-to__topic._focused,
 .dark .compose-to__dm:active,
 .dark .compose-to__dm._focused {
-  transition: none;
-  background: hsl(225, 10%, 13%);
+  background: hsl(231, 10%, 7%);
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: hsl(0deg 0% 100% / 80%);
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
@@ -896,20 +896,18 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor {
-  background: hsl(225, 10%, 13%);
+  background: hsl(231, 10%, 10%);
   border: 1px solid black;
   color: hsl(0deg 0% 100% / 80%);
-  transition: border 120ms linear;
+  transition: all 120ms linear;
 }
-
-
 
 .compose-body__editor:hover {
   border: 1px solid hsl(232deg 20% 10% / 70%);
 }
 
 .dark .compose-body__editor:hover {
-  background: hsl(220, 10%, 14%);
+  background: hsl(231, 10%, 9%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: hsl(0deg 0% 100% / 80%);
 }
@@ -920,8 +918,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor._focused {
-  transition: none;
-  background: hsl(225, 10%, 13%);
+  background: hsl(231, 10%, 8.5%);
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: hsl(0deg 0% 100% / 80%);
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
@@ -1001,7 +998,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor-buttons-container {
-  background: hsl(225, 9%, 11%);
+  background: hsl(231, 10%, 12%);
 }
 
 .compose-body__editor-buttons_scrollable {
@@ -1199,7 +1196,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor-expand {
-  background-color: hsl(230deg 8.33% 14.12% / 90%);
+  background-color: hsl(231deg 10% 9% / 90%);
   color: hsl(0deg 0% 70%);
 }
 
@@ -1213,7 +1210,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor-expand:hover {
-  background-color: hsla(225deg, 15%, 22%, 1);
+  background-color: hsla(231deg, 12%, 14%, 1);
   color: hsl(0deg 0% 80%);
 }
 
@@ -1222,7 +1219,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .dark .compose-body__editor-expand:active {
-  background-color: hsla(225deg, 17%, 26%, 1);
+  background-color: hsla(231deg, 12%, 12%, 1);
 }
 
 .editor-expand__icon-minimize,

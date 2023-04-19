@@ -222,6 +222,7 @@ function onComposeBodyEditorExpand(event) {
     },150) //duration of the animation for height transition
      
   }
+  document.getElementById('compose_body_editor_input_bottom').focus()
 }
 
 //we should track size of the area and switch enlargement button
