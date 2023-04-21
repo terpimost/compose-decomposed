@@ -35,6 +35,7 @@
 
   --icon-question: url("data:image/svg+xml,%3Csvg class='icon' xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'%3E%3Cpath fill='black' d='M10.28 13.81c.52 0 .72-.36.72-.89 0-.88.3-1.35 1.37-1.98 1.07-.65 1.75-1.55 1.75-2.87 0-1.8-1.47-3.07-3.56-3.07-1.61 0-2.85.7-3.34 1.89-.15.33-.22.61-.22.97 0 .44.24.7.66.7.38 0 .57-.17.7-.68.29-1 1.03-1.57 2.14-1.57 1.24 0 2.06.74 2.06 1.83 0 .86-.38 1.4-1.35 2-1.15.7-1.68 1.44-1.68 2.57v.24c0 .48.23.86.75.86Zm-.01 3.49c.54 0 .96-.42.96-.96a.94.94 0 0 0-.96-.96.94.94 0 0 0-.96.96c0 .54.42.96.96.96Z'%3E%3C/path%3E%3C/svg%3E");
   --icon-preview: url("data:image/svg+xml,%3Csvg class='icon' xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'%3E%3Cg fill='black'%3E%3Cpath d='M11 14.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5Z'%3E%3C/path%3E%3Cpath fill-rule='evenodd' d='M19.57 10.67v-.03a3.73 3.73 0 0 0-.15-.22l-.42-.6A13.4 13.4 0 0 0 17.36 8 9.44 9.44 0 0 0 11 5.33a9.44 9.44 0 0 0-6.36 2.68 13.4 13.4 0 0 0-2.2 2.63l-.01.02L3 11l-.57-.33a.67.67 0 0 0 0 .66l.07-.04L3 11l-.57.33v.03a5 5 0 0 0 .15.22l.42.6c.37.5.92 1.15 1.64 1.81A9.44 9.44 0 0 0 11 16.66 9.44 9.44 0 0 0 17.36 14a13.41 13.41 0 0 0 2.2-2.63l.01-.02L19 11l.57.33a.67.67 0 0 0 0-.66ZM3.8 11l.28.38c.33.45.83 1.04 1.47 1.63A8.12 8.12 0 0 0 11 15.34 8.12 8.12 0 0 0 16.46 13a12.08 12.08 0 0 0 1.75-2 10.84 10.84 0 0 0-1.75-2.01A8.12 8.12 0 0 0 11 6.66 8.12 8.12 0 0 0 5.54 9a12.07 12.07 0 0 0-1.75 2ZM19 11l.57-.33L19 11Z' clip-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  --icon-help-filled-circle:  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.7 11.9H7.3v-1.4h1.4v1.4Zm1.45-5.43-.63.65a2.45 2.45 0 0 0-.82 1.98H7.3v-.35a2.83 2.83 0 0 1 .82-1.98l.87-.88c.32-.31.47-.77.38-1.26a1.4 1.4 0 0 0-.97-1.07 1.4 1.4 0 0 0-1.73.89c-.08.25-.3.45-.57.45h-.21a.6.6 0 0 1-.58-.78 2.8 2.8 0 0 1 2.26-1.99 2.85 2.85 0 0 1 2.71 1.26c.83 1.15.58 2.37-.13 3.08Z'/%3e%3c/svg%3e");
 }
 
 
@@ -275,8 +276,10 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
   outline: none;
   background: none;
   font-family: var(--font-ss3);
+  font-weight: 450;
   font-size: 15px;
   line-height: 19px;
+  letter-spacing: 0.04em;
   height: 30px;
   align-items: center;
   color: hsl(240deg 30% 50%);
@@ -298,17 +301,21 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
-  padding-left: 12px;
   margin-bottom: 4px;
   user-select: none;
+}
+.compose-area .compose-body__char-counter {
+  padding-left: 12px;
 }
 
 .compose-body__char-counter {
   visibility: hidden;
+  display: none;
 }
 
 .compose-body__char-counter._visible {
   visibility: visible;
+  display: block;
 }
 
 .char-counter__value {
@@ -345,6 +352,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .compose-button._minimal {
   border: none;
   background-color: transparent;
+  font-weight: 450;
 }
 
 .compose-start__drafts:hover,
@@ -361,6 +369,8 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 .compose-button._minimal:active {
   background: hsl(240deg 100% 30% / 9%);
   outline: none;
+  transition: all 80ms;
+  transform: scale(0.96);
 }
 
 .dark .compose-start__drafts:active,
@@ -566,7 +576,10 @@ i.icon-size-22{
   mask-image: var(--icon-preview);
   -webkit-mask-image: var(--icon-preview);
 }
-
+.icon-help-filled-circle{
+  mask-image: var(--icon-help-filled-circle);
+  -webkit-mask-image: var(--icon-help-filled-circle);
+}
 
 .icon-hash {
   background-color: currentColor;
@@ -1305,6 +1318,8 @@ i.icon-size-22{
 
 .editor-button:active {
   background-color: rgba(0, 0, 0, 0.08);
+  transition: all 80ms;
+  transform: scale(0.95);
 }
 
 .dark .editor-button:active {
@@ -1352,6 +1367,8 @@ i.icon-size-22{
 
 .compose-body__editor-expand:active {
   background-color: hsl(0, 0%, 92%);
+  transition: all 80ms;
+  transform: scale(0.95);
 }
 
 .dark .compose-body__editor-expand:active {
@@ -1401,6 +1418,9 @@ i.icon-size-22{
   border: none;
   border-right: 1px solid #CBCBCB;
 }
+.dark .editor-button-spacer hr {
+  border-right: 1px solid hsla(0, 0%, 80%, 0.3);
+}
 
 .compose-body__other {
   display: flex;
@@ -1417,7 +1437,7 @@ i.icon-size-22{
   flex-direction: row;
 }
 
-.compose-send {
+.compose-send-button {
   outline: none;
   display: flex;
   align-items: center;
@@ -1428,40 +1448,37 @@ i.icon-size-22{
   flex-shrink: 0;
   width: 74px;
   height: 29px;
-  background-color: hsla(226, 99%, 70%, 1);
+  background-color: hsla(226, 99%, 66%, 1);
   border-radius: 4px;
   cursor: pointer;
   margin-left: 12px;
   z-index: 1;
 }
 
-.dark .compose-send {
+.dark .compose-send-button {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' viewBox='0 0 20 20'%3e%3cg id='Group'%3e%3cg id='icons/24/send' clip-path='url(%23clip0_4210_281140)'%3e%3cpath id='Vector_____0_1_OOUGRXJCGD' fill='rgba(255,255,255,0.8)' d='M2.83333 17L17.375 10.7667C18.05 10.475 18.05 9.525 17.375 9.23333L2.83333 3C2.28333 2.75833 1.675 3.16667 1.675 3.75833L1.66667 7.6C1.66667 8.01667 1.975 8.375 2.39167 8.425L14.1667 10L2.39167 11.5667C1.975 11.625 1.66667 11.9833 1.66667 12.4L1.675 16.2417C1.675 16.8333 2.28333 17.2417 2.83333 17V17Z'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0_4210_281140'%3e%3cpath fill='white' d='M0 0H20V20H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
-  background-color: hsla(226, 60%, 40%, 1);
-}
-
-.compose-send:hover {
-  background-color: hsla(226, 99%, 65%, 1);
-}
-
-.dark .compose-send:hover {
   background-color: hsla(226, 60%, 45%, 1);
 }
 
-.compose-send:active {
+.compose-send-button:hover {
   background-color: hsla(226, 99%, 60%, 1);
 }
 
-.dark .compose-send:active {
-  background-color: hsla(226, 60%, 50%, 1);
+.dark .compose-send-button:hover {
+  background-color: hsla(226, 65%, 50%, 1);
 }
 
-.compose-send:focus-visible {
+.compose-send-button:active {
+  transition: all 80ms;
+  transform: scale(0.96);
+}
+
+.compose-send-button:focus-visible {
   border: 1px solid hsl(232deg 20% 10% / 100%);
   box-shadow: 0px 0px 5px rgba(0, 18, 104, 1);
 }
 
-.dark .compose-send:focus-visible {
+.dark .compose-send-button:focus-visible {
   border: 1px solid hsl(232deg 20% 10% / 100%);
   box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.8);
 }
@@ -1543,6 +1560,114 @@ i.icon-size-22{
   background: hsl(225, 10%, 13%);
 }
 
+
+/* Inline editor */
+.compose-body__editor-inline-actions{
+  margin-top: 8px;
+  font-family: var(--font-ss3);
+  font-size: 14px;
+  line-height: 14px;
+  color: hsl(0, 0%, 20%);
+}
+.dark .compose-body__editor-inline-actions{
+  color: hsl(0, 0%, 75%);
+}
+.message_edit_countdown_timer{
+  opacity: 0.7;
+  user-select: none;
+}
+
+.compose-body__editor-inline-actions .action-buttons{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-buttons button{
+  font-family: var(--font-ss3);
+  letter-spacing: 0.04em;
+  font-weight: 550;
+  line-height: 19px;
+  font-size: 15px;
+  border: 1px solid transparent;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+.action-buttons button{
+  background-color: hsla(226, 1%, 42%, 0.2);
+}
+.action-buttons button:hover{
+  background-color: hsla(226, 1%, 42%, 0.27);
+}
+
+.action-buttons button:active{
+  transition: all 80ms;
+  transform: scale(0.96);
+}
+
+.action-buttons button.primary{
+  background-color: hsla(226, 99%, 66%, 1);
+  color: hsl(0, 0%, 100%);
+}
+.action-buttons button.primary:hover{
+  background-color: hsla(226, 99%, 60%, 1);
+}
+
+.dark .action-buttons button{
+  color: hsl(0, 0%, 85%);
+  background-color: hsla(226, 1%, 30%, 0.5);
+}
+.dark .action-buttons button:hover{
+  background-color: hsla(226, 1%, 30%, 0.65);
+}
+
+.dark .action-buttons button.primary{
+  background-color: hsla(226, 60%, 45%, 1);
+  color: hsl(0, 0%, 85%);
+}
+.dark .action-buttons button.primary:hover {
+  background-color: hsla(226, 65%, 50%, 1);
+}
+
+.action-buttons button._minimal{
+  color: hsl(240deg 30% 50%);
+  background-color: transparent;
+  font-weight: 450;
+}
+.dark .action-buttons button._minimal{
+  color: hsl(240deg 55% 70%);
+}
+.action-buttons button._minimal:hover{
+  background: hsl(240deg 100% 30% / 5%);
+}
+.dark .action-buttons  button._minimal:hover {
+  background: hsl(235deg 100% 70% / 11%);
+}
+
+.compose-start__drafts:active,
+.compose-button._minimal:active {
+  background: hsl(240deg 100% 30% / 9%);
+  outline: none;
+}
+
+.help-tooltip-button{
+  vertical-align: middle;
+  opacity: 0.6;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+}
+.help-tooltip-button:hover{
+  opacity: 1;
+}
+
+.message_edit_save{
+  min-width: 68px;
+}
 
 
 

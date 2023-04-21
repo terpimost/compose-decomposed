@@ -73,12 +73,11 @@ function onPageScroll() {
   }
 }
 
-function onComposeBodyEditorInputFocus() {
-  document.getElementById('compose_body_editor_bottom').classList.add('_focused')
-
+function onComposeBodyEditorInputFocus(event) {
+  event.target.closest('.compose-body__editor').classList.add('_focused')
 }
 function onComposeBodyEditorInputBlur(event) {
-  document.getElementById('compose_body_editor_bottom').classList.remove('_focused')
+  event.target.closest('.compose-body__editor').classList.remove('_focused')
 
   //if the field has only white spaces we remove everything
   // the same should be done for compose_to_dm_input_bottom

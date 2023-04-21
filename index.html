@@ -61,9 +61,17 @@
             <!-- Inline edit box -->
             <div class="message_edit">
               <div id="compose_body_editor_inline" class="compose-body__editor">
-                <div id="compose_body_editor_input_inline" class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" contenteditable="" onfocus="onComposeBodyEditorInputFocus()" onblur="onComposeBodyEditorInputBlur(event)" oninput="onComposeBodyEditorInputChange(event)" ondragover="return false" ondrop="return false"></div>
+                <div id="compose_body_editor_input_inline" class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" contenteditable="" 
+                  onfocus="onComposeBodyEditorInputFocus(event)" 
+                  onblur="onComposeBodyEditorInputBlur(event)" 
+                  oninput="onComposeBodyEditorInputChange(event)" 
+                ondragover="return false" ondrop="return false"></div>
                 <div id="compose_body_editor_buttons_container_inline" class="compose-body__editor-buttons-container">
-                  <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                  <div class="compose-body__editor-buttons-container--scroll-left"
+                    title="scroll" 
+                    onclick="onEditorButtonsLeftScroll()" 
+                    onwheel="onEditorButtonsWheel(event)">
+                  </div>
       
                   <div id="compose_body_editor_buttons_scrollable_inline" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
                     <div class="compose-body__editor-buttons">
@@ -186,106 +194,153 @@
             
             <!-- Inline edit box -->
             <div class="message_edit">
-              <div id="compose_body_editor_inline" class="compose-body__editor">
-                <div id="compose_body_editor_input_inline" class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" contenteditable="" onfocus="onComposeBodyEditorInputFocus()" onblur="onComposeBodyEditorInputBlur(event)" oninput="onComposeBodyEditorInputChange(event)" ondragover="return false" ondrop="return false"></div>
-                <div id="compose_body_editor_buttons_container_inline" class="compose-body__editor-buttons-container">
-                  <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
-      
-                  <div id="compose_body_editor_buttons_scrollable_inline" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
-                    <div class="compose-body__editor-buttons">
-                      <div class="editor-button editor-paste-attachment">
-                        <i class="icon icon-attachment icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-call">
-                        <i class="icon icon-call icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-time">
-                        <i class="icon icon-time icon-size-22"></i>
-                      </div>
-                      <div class="editor-button-spacer">
-                        <hr>
-                      </div>
-                      <div class="editor-button editor-paste-smile">
-                        <i class="icon icon-smile icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-gif">
-                        <i class="icon icon-gif icon-size-22"></i>
-                      </div>
-                      <div class="editor-button-spacer">
-                        <hr>
-                      </div>
-                      <div class="editor-button editor-paste-link">
-                        <i class="icon icon-link icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-header">
-                        <i class="icon icon-header icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-bold">
-                        <i class="icon icon-bold icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-italic">
-                        <i class="icon icon-italic icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-strike">
-                        <i class="icon icon-striked icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-code">
-                        <i class="icon icon-code icon-size-22"></i>
-                      </div>
-                      <div class="editor-button-spacer">
-                        <hr>
-                      </div>
-                      <div class="editor-button editor-format-ol">
-                        <i class="icon icon-list icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-format-ul">
-                        <i class="icon icon-list-ordered icon-size-22"></i>
-                      </div>
-                      <div class="editor-button-spacer">
-                        <hr>
-                      </div>
-                      <div class="editor-button editor-paste-code">
-                        <i class="icon icon-code-block icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-quote">
-                        <i class="icon icon-quote icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-math">
-                        <i class="icon icon-math icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-spoiler">
-                        <i class="icon icon-spoiler icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-checklist">
-                        <i class="icon icon-checklist icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-poll">
-                        <i class="icon icon-thumbs-up icon-size-22"></i>
-                      </div>
-                      <div class="editor-button editor-paste-table">
-                        <i class="icon icon-table icon-size-22"></i>
+              <div class="message_edit_form">
+                <div class="edit_form_banners">
+        
+                    <!-- related to banners.css -->
+                    <div class="banner _success _open">
+                      <span>
+                        <strong>Sent!</strong> Your message is <b>outside</b> your current narrow. Narrow to <a href="zulip.com">#stream&gt;topic</a>
+                      </span>
+                      <button>Great</button>
+                      <button class="icon-button button-close" onclick="onCloseBannerClick('compose_banner_success')"><i class="icon-cross"></i></button>
+                    </div>
+                    <div  class="banner _info _open">
+                      <span>
+                        <strong>Sent!</strong> Your message is <b>outside</b> your current narrow. Narrow to <a href="zulip.com">#stream&gt;topic</a>
+                      </span>
+                      <button>I got this</button>
+                      <button class="icon-button button-close" onclick="onCloseBannerClick('compose_banner_info')"><i class="icon-cross"></i></button>
+                    </div>
+                    <div class="banner _warning">
+                      <span>
+                        <strong>Sent!</strong> Your message is <b>outside</b> your current narrow. Narrow to <a href="zulip.com">#stream&gt;topic</a>
+                      </span>
+                      <button>Oops</button>
+                      <button class="icon-button button-close" onclick="onCloseBannerClick('compose_banner_warning')"><i class="icon-cross"></i></button>
+                    </div>
+                    
+
+                </div>
+                <div class="compose-body__editor">
+                  <div id="compose_body_editor_input_inline" class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" contenteditable="" 
+                    onfocus="onComposeBodyEditorInputFocus(event)" 
+                    onblur="onComposeBodyEditorInputBlur(event)" 
+                    oninput="onComposeBodyEditorInputChange(event)" 
+                  ondragover="return false" ondrop="return false"></div>
+                  <div id="compose_body_editor_buttons_container_inline" class="compose-body__editor-buttons-container">
+                    <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+        
+                    <div id="compose_body_editor_buttons_scrollable_inline" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
+                      <div class="compose-body__editor-buttons">
+                        <div class="editor-button editor-paste-attachment">
+                          <i class="icon icon-attachment icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-call">
+                          <i class="icon icon-call icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-time">
+                          <i class="icon icon-time icon-size-22"></i>
+                        </div>
+                        <div class="editor-button-spacer">
+                          <hr>
+                        </div>
+                        <div class="editor-button editor-paste-smile">
+                          <i class="icon icon-smile icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-gif">
+                          <i class="icon icon-gif icon-size-22"></i>
+                        </div>
+                        <div class="editor-button-spacer">
+                          <hr>
+                        </div>
+                        <div class="editor-button editor-paste-link">
+                          <i class="icon icon-link icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-header">
+                          <i class="icon icon-header icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-bold">
+                          <i class="icon icon-bold icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-italic">
+                          <i class="icon icon-italic icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-strike">
+                          <i class="icon icon-striked icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-code">
+                          <i class="icon icon-code icon-size-22"></i>
+                        </div>
+                        <div class="editor-button-spacer">
+                          <hr>
+                        </div>
+                        <div class="editor-button editor-format-ol">
+                          <i class="icon icon-list icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-format-ul">
+                          <i class="icon icon-list-ordered icon-size-22"></i>
+                        </div>
+                        <div class="editor-button-spacer">
+                          <hr>
+                        </div>
+                        <div class="editor-button editor-paste-code">
+                          <i class="icon icon-code-block icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-quote">
+                          <i class="icon icon-quote icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-math">
+                          <i class="icon icon-math icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-spoiler">
+                          <i class="icon icon-spoiler icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-checklist">
+                          <i class="icon icon-checklist icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-poll">
+                          <i class="icon icon-thumbs-up icon-size-22"></i>
+                        </div>
+                        <div class="editor-button editor-paste-table">
+                          <i class="icon icon-table icon-size-22"></i>
+                        </div>
                       </div>
                     </div>
+                    <div class="compose-body__editor-buttons_right-group">
+                      <div class="editor-button">
+                        <i class="icon icon-question icon-size-22"></i>
+                      </div>
+                      <div class="editor-button">
+                        <i class="icon icon-preview icon-size-22"></i>
+                      </div>
+                    </div>
+        
+                    <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
                   </div>
-                  <div class="compose-body__editor-buttons_right-group">
-                    <div class="editor-button">
-                      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22">
-                        <path fill="currentColor" d="M10.28 13.81c.52 0 .72-.36.72-.89 0-.88.3-1.35 1.37-1.98 1.07-.65 1.75-1.55 1.75-2.87 0-1.8-1.47-3.07-3.56-3.07-1.61 0-2.85.7-3.34 1.89-.15.33-.22.61-.22.97 0 .44.24.7.66.7.38 0 .57-.17.7-.68.29-1 1.03-1.57 2.14-1.57 1.24 0 2.06.74 2.06 1.83 0 .86-.38 1.4-1.35 2-1.15.7-1.68 1.44-1.68 2.57v.24c0 .48.23.86.75.86Zm-.01 3.49c.54 0 .96-.42.96-.96a.94.94 0 0 0-.96-.96.94.94 0 0 0-.96.96c0 .54.42.96.96.96Z"></path>
-                      </svg>
-      
-                    </div>
-                    <div class="editor-button">
-                      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22">
-                        <g fill="currentColor">
-                          <path d="M11 14.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5Z"></path>
-                          <path fill-rule="evenodd" d="M19.57 10.67v-.03a3.73 3.73 0 0 0-.15-.22l-.42-.6A13.4 13.4 0 0 0 17.36 8 9.44 9.44 0 0 0 11 5.33a9.44 9.44 0 0 0-6.36 2.68 13.4 13.4 0 0 0-2.2 2.63l-.01.02L3 11l-.57-.33a.67.67 0 0 0 0 .66l.07-.04L3 11l-.57.33v.03a5 5 0 0 0 .15.22l.42.6c.37.5.92 1.15 1.64 1.81A9.44 9.44 0 0 0 11 16.66 9.44 9.44 0 0 0 17.36 14a13.41 13.41 0 0 0 2.2-2.63l.01-.02L19 11l.57.33a.67.67 0 0 0 0-.66ZM3.8 11l.28.38c.33.45.83 1.04 1.47 1.63A8.12 8.12 0 0 0 11 15.34 8.12 8.12 0 0 0 16.46 13a12.08 12.08 0 0 0 1.75-2 10.84 10.84 0 0 0-1.75-2.01A8.12 8.12 0 0 0 11 6.66 8.12 8.12 0 0 0 5.54 9a12.07 12.07 0 0 0-1.75 2ZM19 11l.57-.33L19 11Z" clip-rule="evenodd"></path>
-                        </g>
-                      </svg>
-                    </div>
-      
+                </div>
+                <div class="compose-body__editor-inline-actions">
+                  <div class="compose-body__char-counter" title="character limit per message">
+                    <span class="char-counter__value">9,000</span>
+                    <span class="char-counter__limit">/&nbsp;10,000</span>
                   </div>
-      
-                  <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                  <!-- same classe as in zulip now -->
+                  <div class="action-buttons">
+                    <button class="message_edit_save primary">Save</button>
+                    <button class="message_edit_cancel">Cancel</button>
+                    <div class="spacer"></div>
+                    <div class="message-edit-timer">
+                      <span class="message_edit_countdown_timer">31 min to edit</span>
+                      <span class="help-tooltip-button">
+                          <i class="tippy-zulip-tooltip message_edit_tooltip icon icon-help-filled-circle" 
+                          aria-hidden="true" 
+                          data-tippy-content="This organization is configured to restrict editing of message content to 240 minutes after it is sent.">
+                          </i>
+                      </span>
+                    </div>
+                    <div class="spacer_filler"> </div>
+                    <button class="message_edit_move _minimal">Move</button>
+                  </div>
                 </div>
               </div>
 
@@ -522,14 +577,19 @@
       <div class="compose-body-container">
         <div id="compose_body_editor_bottom" class="compose-body__editor">
           <div id="compose_body_editor_input_bottom" class="compose-body__editor-input" placeholder="Message"
-            autocomplete='off' wrap="hard" role="textbox" contenteditable onfocus="onComposeBodyEditorInputFocus()"
-            onblur="onComposeBodyEditorInputBlur(event)" oninput="onComposeBodyEditorInputChange(event)"
+            autocomplete='off' wrap="hard" role="textbox" contenteditable 
+            onfocus="onComposeBodyEditorInputFocus(event)"
+            onblur="onComposeBodyEditorInputBlur(event)" 
+            oninput="onComposeBodyEditorInputChange(event)"
             ondragover="return false" ondrop="return false"></div>
           <div id="compose_body_editor_buttons_container_bottom" class="compose-body__editor-buttons-container">
             <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()"
               title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
 
-              <div id="compose_body_editor_buttons_scrollable_bottom" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
+              <div id="compose_body_editor_buttons_scrollable_bottom" class="compose-body__editor-buttons_scrollable" 
+                onwheel="onEditorButtonsWheel(event)" 
+                onscroll="updateEditorButtonsScrollShadows()"
+              >
                 <div class="compose-body__editor-buttons">
                   <div class="editor-button editor-paste-attachment">
                     <i class="icon icon-attachment icon-size-22"></i>
@@ -605,28 +665,14 @@
                   </div>
                 </div>
               </div>
-            <div class="compose-body__editor-buttons_right-group">
-              <div class="editor-button">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-                  viewBox="0 0 22 22">
-                  <path fill="currentColor"
-                    d="M10.28 13.81c.52 0 .72-.36.72-.89 0-.88.3-1.35 1.37-1.98 1.07-.65 1.75-1.55 1.75-2.87 0-1.8-1.47-3.07-3.56-3.07-1.61 0-2.85.7-3.34 1.89-.15.33-.22.61-.22.97 0 .44.24.7.66.7.38 0 .57-.17.7-.68.29-1 1.03-1.57 2.14-1.57 1.24 0 2.06.74 2.06 1.83 0 .86-.38 1.4-1.35 2-1.15.7-1.68 1.44-1.68 2.57v.24c0 .48.23.86.75.86Zm-.01 3.49c.54 0 .96-.42.96-.96a.94.94 0 0 0-.96-.96.94.94 0 0 0-.96.96c0 .54.42.96.96.96Z" />
-                </svg>
-
+              <div class="compose-body__editor-buttons_right-group">
+                <div class="editor-button">
+                  <i class="icon icon-question icon-size-22"></i>
+                </div>
+                <div class="editor-button">
+                  <i class="icon icon-preview icon-size-22"></i>
+                </div>
               </div>
-              <div class="editor-button">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
-                  viewBox="0 0 22 22">
-                  <g fill="currentColor">
-                    <path d="M11 14.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5Z" />
-                    <path fill-rule="evenodd"
-                      d="M19.57 10.67v-.03a3.73 3.73 0 0 0-.15-.22l-.42-.6A13.4 13.4 0 0 0 17.36 8 9.44 9.44 0 0 0 11 5.33a9.44 9.44 0 0 0-6.36 2.68 13.4 13.4 0 0 0-2.2 2.63l-.01.02L3 11l-.57-.33a.67.67 0 0 0 0 .66l.07-.04L3 11l-.57.33v.03a5 5 0 0 0 .15.22l.42.6c.37.5.92 1.15 1.64 1.81A9.44 9.44 0 0 0 11 16.66 9.44 9.44 0 0 0 17.36 14a13.41 13.41 0 0 0 2.2-2.63l.01-.02L19 11l.57.33a.67.67 0 0 0 0-.66ZM3.8 11l.28.38c.33.45.83 1.04 1.47 1.63A8.12 8.12 0 0 0 11 15.34 8.12 8.12 0 0 0 16.46 13a12.08 12.08 0 0 0 1.75-2 10.84 10.84 0 0 0-1.75-2.01A8.12 8.12 0 0 0 11 6.66 8.12 8.12 0 0 0 5.54 9a12.07 12.07 0 0 0-1.75 2ZM19 11l.57-.33L19 11Z"
-                      clip-rule="evenodd" />
-                  </g>
-                </svg>
-              </div>
-
-            </div>
 
             <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()"
               title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
@@ -651,7 +697,7 @@
             <span id="char_counter_value_limit" class="char-counter__limit">/&nbsp;10,000</span>
           </div>
           <div class="compose-body__send-container">
-            <button class="compose-send" onclick="onSendClick()"></button>
+            <button class="compose-send-button" onclick="onSendClick()"></button>
             <button class="compose-send-more compose-button _minimal" onclick="onSendOptionsClick()">
               <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">

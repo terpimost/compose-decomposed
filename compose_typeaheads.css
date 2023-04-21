@@ -87,8 +87,8 @@
 
 .topic_list_popover {
     position: absolute;
-    top: 550px;
-    right: 50px;
+    bottom: 150px;
+    right: 380px;
     width: 400px;
     height: 210px;
     display: flex;
@@ -97,8 +97,8 @@
 
 .user_list_popover {
     position: absolute;
-    top: 550px;
-    right: 500px;
+    bottom: 150px;
+    right: 40px;
     width: 300px;
     height: 210px;
     display: flex;
@@ -135,6 +135,8 @@ ul.typeahead-menu li._active {
 
 ul.typeahead-menu li:active {
     background-color: rgba(11, 12, 14, 0.07);
+    transition: all 80ms;
+    transform: scale(0.99);
 }
 
 .dark ul.typeahead-menu li:hover,
