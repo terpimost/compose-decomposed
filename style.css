@@ -186,7 +186,7 @@
   user-select: none;
   text-decoration: none;
   outline: none;
-
+  letter-spacing: 0.02em;
   max-width: 90px;
   overflow: hidden;
   text-overflow: clip;
@@ -247,6 +247,8 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .compose-start__new-topic:active,
 .compose-to-topic__new-topic:active {
+  transition: all 80ms;
+  transform: scale(0.96);
   border: 2px solid #ffffff;
   background: hsl(231deg 100% 90% / 40%);
 }
@@ -298,7 +300,7 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   user-select: none;
 }
 .compose-area .compose-body__char-counter {
@@ -364,13 +366,14 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 
 .compose-start__drafts:active,
 .compose-button._minimal:active {
-  background: hsl(240deg 100% 30% / 9%);
   outline: none;
   transition: all 80ms;
   transform: scale(0.96);
 }
+.compose-button._minimal:active {
+  background: hsl(240deg 100% 30% / 9%);
+}
 
-.dark .compose-start__drafts:active,
 .dark .compose-button._minimal:active {
   background: hsl(235deg 100% 70% / 18%);
 }
@@ -1685,7 +1688,6 @@ i.icon-size-22{
   background: hsl(235deg 100% 70% / 11%);
 }
 
-.compose-start__drafts:active,
 .compose-button._minimal:active {
   background: hsl(240deg 100% 30% / 9%);
   outline: none;

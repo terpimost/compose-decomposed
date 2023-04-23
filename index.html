@@ -74,11 +74,9 @@
 
                 </div>
                 <div class="compose-body__editor">
-                  <div class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" contenteditable="" 
-                    onfocus="onComposeBodyEditorInputFocus(event)" 
-                    onblur="onComposeBodyEditorInputBlur(event)" 
-                    oninput="onComposeBodyEditorInputChange(event)" 
-                  ondragover="return false" ondrop="return false"></div>
+                  <div class="compose-body__editor-input" placeholder="Message" autocomplete="off" wrap="hard" role="textbox" 
+                    contenteditable="false"
+                  ondragover="return false" ondrop="return false"><div>Here is some content previously entered</div></div>
                   <div class="compose-body__editor-buttons-container">
                     <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
         
@@ -169,12 +167,12 @@
         
                     <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
                   </div>
-                  <div class="compose-body__editor-copy">
+                  <div class="compose-body__editor-copy" data-tippy-content="Copy and close" aria-label="Copy and close" role="button" >
                     <i class="icon icon-copy"></i>
                   </div>
                 </div>
                 <div class="compose-body__editor-inline-actions">
-                  <div class="compose-body__char-counter" title="character limit per message">
+                  <div class="compose-body__char-counter"  title="character limit per message">
                     <span class="char-counter__value">9,000</span>
                     <span class="char-counter__limit">/&nbsp;10,000</span>
                   </div>
@@ -324,6 +322,7 @@
                   
                 </div>
                 <div class="compose-body__editor-inline-actions">
+                  <!-- change to class="compose-body__char-counter _visible" to show counter -->
                   <div class="compose-body__char-counter" title="character limit per message">
                     <span class="char-counter__value">9,000</span>
                     <span class="char-counter__limit">/&nbsp;10,000</span>
