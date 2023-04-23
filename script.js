@@ -1,5 +1,9 @@
 // import { signal } from "https://cdn.skypack.dev/@preact/signals-core";
 
+function onDocumentLoad(){
+  updateEditorButtonsScrollShadows()
+}
+
 function onComposeStart() {
   document.getElementById('bottom_compose_area').classList.add('_open')
   document.getElementById('compose_body_editor_input_bottom').focus()
@@ -88,15 +92,16 @@ function onComposeBodyEditorInputBlur(event) {
 }
 
 function onEditorButtonsWheel(event) {
-  // console.log('event', event, 'Math.abs(event.wheelDeltaY) > Math.abs(event.wheelDeltaX)=',Math.abs(event.wheelDeltaY) > Math.abs(event.wheelDeltaX))
   event.stopImmediatePropagation()
   event.preventDefault()
-  const target = document.getElementById('compose_body_editor_buttons_scrollable_bottom')
+  const currentTarget = event.currentTarget //container of left right button
+  const targetParent = currentTarget.closest('.compose-body__editor-buttons-container')
+  const target = targetParent.querySelector('.compose-body__editor-buttons_scrollable')
   if (Math.abs(event.wheelDeltaY) > Math.abs(event.wheelDeltaX)) {
     //this is vertical scrolling, we should convert it to horizontal
     const delta = Math.max(Math.abs(event.wheelDeltaY), Math.abs(event.wheelDeltaX))
     target.scrollBy(- Math.sign(event.wheelDeltaY) * delta / 2, 0);
-  }else{ //horizontal scrolling
+  } else { //horizontal scrolling
     const delta = -event.wheelDeltaX
     target.scrollBy(delta, 0);
   }
@@ -104,41 +109,50 @@ function onEditorButtonsWheel(event) {
   return false
 }
 
-function onEditorButtonsLeftScroll(){
-  const scrollable =  document.getElementById('compose_body_editor_buttons_scrollable_bottom')
-  const container = document.getElementById('compose_body_editor_buttons_container_bottom')
-  scrollable.scrollTo({left:0, behavior:'smooth'})
+function onEditorButtonsLeftScroll(event) {
+  const container = event.currentTarget.closest('.compose-body__editor-buttons-container')
+  const scrollable = container.querySelector('.compose-body__editor-buttons_scrollable')
+  scrollable.scrollTo({ left: 0, behavior: 'smooth' })
 }
-function onEditorButtonsRightScroll(){
-  const scrollable =  document.getElementById('compose_body_editor_buttons_scrollable_bottom')
-  const container = document.getElementById('compose_body_editor_buttons_container_bottom')
-  scrollable.scrollTo({left:scrollable.scrollWidth - scrollable.clientWidth, behavior:'smooth'})
+function onEditorButtonsRightScroll(event) {
+  const container = event.currentTarget.closest('.compose-body__editor-buttons-container')
+  const scrollable = container.querySelector('.compose-body__editor-buttons_scrollable')
+  scrollable.scrollTo({ left: scrollable.scrollWidth - scrollable.clientWidth, behavior: 'smooth' })
 }
 
+// with component approach this function could be just inside a component
+// but in this demo I have to go throug all the editors and check their buttons
 function updateEditorButtonsScrollShadows() {
-  const container = document.getElementById('compose_body_editor_buttons_container_bottom')
-  const scrollable = document.getElementById('compose_body_editor_buttons_scrollable_bottom')
+  // get list of possible containers
+  let containers = document.querySelectorAll('.compose-body__editor-buttons-container')
+  // scrollable container
+  containers = Array.from(containers)
+  containers.forEach(container => {
+    // const container = document.getElementById('compose_body_editor_buttons_container_bottom')
+    // const scrollable = document.getElementById('compose_body_editor_buttons_scrollable_bottom')
+    const scrollable = container.querySelector('.compose-body__editor-buttons_scrollable')
 
-  if (scrollable.scrollWidth > scrollable.clientWidth) {
-    if (scrollable.scrollLeft > 4) {
-      //_scrollable-left
-      container.classList.add('_scrollable-left')
-    }
-    else {
+    if (scrollable.scrollWidth > scrollable.clientWidth) {
+      if (scrollable.scrollLeft > 4) {
+        //_scrollable-left
+        container.classList.add('_scrollable-left')
+      } else {
+        container.classList.remove('_scrollable-left')
+      }
+
+      if (scrollable.scrollWidth - scrollable.clientWidth - scrollable.scrollLeft > 4) {
+        //_scrollable-right
+        container.classList.add('_scrollable-right')
+      } else {
+        container.classList.remove('_scrollable-right')
+      }
+    } else {
       container.classList.remove('_scrollable-left')
-    }
-
-    if (scrollable.scrollWidth - scrollable.clientWidth - scrollable.scrollLeft > 4) {
-      //_scrollable-righ
-      container.classList.add('_scrollable-right')
-    }
-    else {
       container.classList.remove('_scrollable-right')
     }
-  } else {
-    container.classList.remove('_scrollable-left')
-    container.classList.remove('_scrollable-right')
-  }
+
+  })
+
 }
 
 const numberFormatter = new Intl.NumberFormat('en-EN') //local should be correct here
@@ -157,7 +171,7 @@ function onComposeBodyEditorInputChange(event) {
     if (event.target.innerText.length <= errorCharLimit) {
       document.getElementById('char_counter_value_bottom').classList.remove('_error')
       document.getElementById('compose_body_editor_bottom').classList.remove('_error')
-      
+
       document.getElementById('compose_banner_error').classList.remove('_open') //banner demo
     } else {
       document.getElementById('compose_body_editor_bottom').classList.remove('_warning')
@@ -181,45 +195,45 @@ function onComposeBodyEditorInputChange(event) {
 
 function onComposeBodyEditorExpand(event) {
   const area = document.getElementById('bottom_compose_area')
-  if (area.classList.contains('_maximized')){  //minimizing
+  if (area.classList.contains('_maximized')) {  //minimizing
     // we want to animate height, but the end height is unknown
     // we are going to do the best attempt by animating maxHeight down to 50vh
     area.animate([
-      {'maxHeight':'calc(100vh - 42px)' },
-      {'maxHeight':'50vh' },
-    ],{
+      { 'maxHeight': 'calc(100vh - 42px)' },
+      { 'maxHeight': '50vh' },
+    ], {
       duration: 100,
-      'animation-fill-mode':'forwards'
+      'animation-fill-mode': 'forwards'
     })
-    setTimeout(()=>{
+    setTimeout(() => {
       area.classList.remove('_maximized')
       onComposeHeightChange()
-    },100)
-  } else if(
-    area.classList.contains('_enlarged') 
-    || area.classList.contains('_almost_enlarged') 
-  ){ //maximizing
-    area.classList.remove('_enlarged') 
+    }, 100)
+  } else if (
+    area.classList.contains('_enlarged')
+    || area.classList.contains('_almost_enlarged')
+  ) { //maximizing
+    area.classList.remove('_enlarged')
     area.classList.remove('_almost_enlarged')
-    area.classList.add('_maximized') 
+    area.classList.add('_maximized')
   } else { //enlarging
     area.classList.remove('_almost_enlarged')
     // before adding _enlarged class we want to animate height
     // but browser can't animate it from an unknon state, so we are going to animate it via js 
     // and finish with setting the same value via css with _enlarged
-    const vh50 = window.innerHeight/2
+    const vh50 = window.innerHeight / 2
     const areaCurrentHeight = area.clientHeight
     area.animate([
-      {'height':areaCurrentHeight+'px' },
-      {'height':vh50+'px' },
-    ],{
+      { 'height': areaCurrentHeight + 'px' },
+      { 'height': vh50 + 'px' },
+    ], {
       duration: 150,
-      'animation-fill-mode':'forwards'
+      'animation-fill-mode': 'forwards'
     })
-    setTimeout(()=>{
+    setTimeout(() => {
       area.classList.add('_enlarged')
-    },150) //duration of the animation for height transition
-     
+    }, 150) //duration of the animation for height transition
+
   }
   document.getElementById('compose_body_editor_input_bottom').focus()
 }
@@ -228,16 +242,16 @@ function onComposeBodyEditorExpand(event) {
 //otherwise we might be in a situation what we enlarging content area
 //but the change isn't visible since the area already grew to such size
 const ALMOST_ENLRGED_COMPOSE_HEIGHT_DELTA = 20
-function onComposeHeightChange(){
+function onComposeHeightChange() {
   const area = document.getElementById('bottom_compose_area')
-  if (!area.classList.contains('_maximized') && !area.classList.contains('_enlarged')){ 
+  if (!area.classList.contains('_maximized') && !area.classList.contains('_enlarged')) {
     // we only care for the case when it is not maximized or enlarged
     // but grew close to _enlarged, which is 50vh
-    const vh50 = window.innerHeight/2
+    const vh50 = window.innerHeight / 2
     const areaCurrentHeight = area.clientHeight
-    if( vh50-areaCurrentHeight <= ALMOST_ENLRGED_COMPOSE_HEIGHT_DELTA ){ //the basic line height is 19px
+    if (vh50 - areaCurrentHeight <= ALMOST_ENLRGED_COMPOSE_HEIGHT_DELTA) { //the basic line height is 19px
       area.classList.add('_almost_enlarged')
-    }else{
+    } else {
       area.classList.remove('_almost_enlarged')
     }
   }
@@ -259,8 +273,8 @@ function onComposeToStreamClick() {
     label.innerHTML = 'DM'
     compose_to_container.classList.add('_dm')
 
-    drafts_counters.forEach(el=>{
-      el.style.display='none'
+    drafts_counters.forEach(el => {
+      el.style.display = 'none'
     })
   } else {
     icon.classList.remove('icon-dm')
@@ -270,8 +284,8 @@ function onComposeToStreamClick() {
 
     // example of the case when we have some drafts in a stream topic
     // so we show counter
-    drafts_counters.forEach(el=>{
-      el.style.display='block'
+    drafts_counters.forEach(el => {
+      el.style.display = 'block'
     })
   }
 
@@ -288,25 +302,25 @@ function onClickOutsideDmClick(event) {
     onComposeToDmBlur()
   }
 }
-function onComposeToDmBlur(){
+function onComposeToDmBlur() {
   const compose_el = document.getElementById('compose_to_dm_bottom')
   compose_el.classList.remove('_focused')
   document.removeEventListener('click', onClickOutsideDmClick)
 }
 
-function onThemeSwitcherClick(){
+function onThemeSwitcherClick() {
   document.body.classList.toggle('dark')
 }
 
-function onSendOptionsClick(){
+function onSendOptionsClick() {
   document.getElementById('send_options_menu_bottom').classList.toggle('_open')
 }
 
-function onSendClick(){
+function onSendClick() {
   document.getElementById('compose_banner_info').classList.add('_open')
   document.getElementById('compose_banner_success').classList.add('_open')
 }
 
-function onCloseBannerClick(element_id){
+function onCloseBannerClick(element_id) {
   document.getElementById(element_id).classList.remove('_open')
 }

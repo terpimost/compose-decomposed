@@ -21,7 +21,7 @@
   <script src="script.js"></script>
 </head>
 
-<body onscroll="onPageScroll()" class="dark">
+<body onscroll="onPageScroll()" onload="onDocumentLoad()" class="dark">
   <header>
     <div class="logo"></div>
     <button class="theme_switcher" onclick="onThemeSwitcherClick()">
@@ -78,9 +78,13 @@
                     contenteditable="false"
                   ondragover="return false" ondrop="return false"><div>Here is some content previously entered</div></div>
                   <div class="compose-body__editor-buttons-container">
-                    <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                    <div class="compose-body__editor-buttons-container--scroll-left" 
+                      onclick="onEditorButtonsLeftScroll(event)" title="scroll" 
+                      onwheel="onEditorButtonsWheel(event)"></div>
         
-                    <div class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
+                    <div class="compose-body__editor-buttons_scrollable" 
+                    onwheel="onEditorButtonsWheel(event)" 
+                    onscroll="updateEditorButtonsScrollShadows()">
                       <div class="compose-body__editor-buttons">
                         <div class="editor-button editor-paste-attachment">
                           <i class="icon icon-attachment icon-size-22"></i>
@@ -165,7 +169,7 @@
                       </div>
                     </div>
         
-                    <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                    <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll(event)" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
                   </div>
                   <div class="compose-body__editor-copy" data-tippy-content="Copy and close" aria-label="Copy and close" role="button" >
                     <i class="icon icon-copy"></i>
@@ -230,7 +234,7 @@
                     oninput="onComposeBodyEditorInputChange(event)" 
                   ondragover="return false" ondrop="return false"></div>
                   <div class="compose-body__editor-buttons-container">
-                    <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                    <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll(event)" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
         
                     <div id="compose_body_editor_buttons_scrollable_inline" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
                       <div class="compose-body__editor-buttons">
@@ -317,7 +321,7 @@
                       </div>
                     </div>
         
-                    <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                    <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll(event)" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
                   </div>
                   
                 </div>
@@ -589,7 +593,7 @@
             oninput="onComposeBodyEditorInputChange(event)"
             ondragover="return false" ondrop="return false"></div>
           <div id="compose_body_editor_buttons_container_bottom" class="compose-body__editor-buttons-container">
-            <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()"
+            <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll(event)"
               title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
 
               <div id="compose_body_editor_buttons_scrollable_bottom" class="compose-body__editor-buttons_scrollable" 
@@ -680,7 +684,7 @@
                 </div>
               </div>
 
-            <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()"
+            <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll(event)"
               title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
           </div>
           <div id="compose_body_editor_expand" class="compose-body__editor-expand"
