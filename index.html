@@ -82,7 +82,7 @@
                   <div class="compose-body__editor-buttons-container">
                     <div class="compose-body__editor-buttons-container--scroll-left" onclick="onEditorButtonsLeftScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
         
-                    <div id="compose_body_editor_buttons_scrollable_inline" class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
+                    <div class="compose-body__editor-buttons_scrollable" onwheel="onEditorButtonsWheel(event)" onscroll="updateEditorButtonsScrollShadows()">
                       <div class="compose-body__editor-buttons">
                         <div class="editor-button editor-paste-attachment">
                           <i class="icon icon-attachment icon-size-22"></i>
@@ -168,6 +168,9 @@
                     </div>
         
                     <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
+                  </div>
+                  <div class="compose-body__editor-copy">
+                    <i class="icon icon-copy"></i>
                   </div>
                 </div>
                 <div class="compose-body__editor-inline-actions">
@@ -318,6 +321,7 @@
         
                     <div class="compose-body__editor-buttons-container--scroll-right" onclick="onEditorButtonsRightScroll()" title="scroll" onwheel="onEditorButtonsWheel(event)"></div>
                   </div>
+                  
                 </div>
                 <div class="compose-body__editor-inline-actions">
                   <div class="compose-body__char-counter" title="character limit per message">
