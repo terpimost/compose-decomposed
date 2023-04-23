@@ -36,14 +36,11 @@
   --icon-question: url("data:image/svg+xml,%3Csvg class='icon' xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'%3E%3Cpath fill='black' d='M10.28 13.81c.52 0 .72-.36.72-.89 0-.88.3-1.35 1.37-1.98 1.07-.65 1.75-1.55 1.75-2.87 0-1.8-1.47-3.07-3.56-3.07-1.61 0-2.85.7-3.34 1.89-.15.33-.22.61-.22.97 0 .44.24.7.66.7.38 0 .57-.17.7-.68.29-1 1.03-1.57 2.14-1.57 1.24 0 2.06.74 2.06 1.83 0 .86-.38 1.4-1.35 2-1.15.7-1.68 1.44-1.68 2.57v.24c0 .48.23.86.75.86Zm-.01 3.49c.54 0 .96-.42.96-.96a.94.94 0 0 0-.96-.96.94.94 0 0 0-.96.96c0 .54.42.96.96.96Z'%3E%3C/path%3E%3C/svg%3E");
   --icon-preview: url("data:image/svg+xml,%3Csvg class='icon' xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'%3E%3Cg fill='black'%3E%3Cpath d='M11 14.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5Z'%3E%3C/path%3E%3Cpath fill-rule='evenodd' d='M19.57 10.67v-.03a3.73 3.73 0 0 0-.15-.22l-.42-.6A13.4 13.4 0 0 0 17.36 8 9.44 9.44 0 0 0 11 5.33a9.44 9.44 0 0 0-6.36 2.68 13.4 13.4 0 0 0-2.2 2.63l-.01.02L3 11l-.57-.33a.67.67 0 0 0 0 .66l.07-.04L3 11l-.57.33v.03a5 5 0 0 0 .15.22l.42.6c.37.5.92 1.15 1.64 1.81A9.44 9.44 0 0 0 11 16.66 9.44 9.44 0 0 0 17.36 14a13.41 13.41 0 0 0 2.2-2.63l.01-.02L19 11l.57.33a.67.67 0 0 0 0-.66ZM3.8 11l.28.38c.33.45.83 1.04 1.47 1.63A8.12 8.12 0 0 0 11 15.34 8.12 8.12 0 0 0 16.46 13a12.08 12.08 0 0 0 1.75-2 10.84 10.84 0 0 0-1.75-2.01A8.12 8.12 0 0 0 11 6.66 8.12 8.12 0 0 0 5.54 9a12.07 12.07 0 0 0-1.75 2ZM19 11l.57-.33L19 11Z' clip-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
   --icon-help-filled-circle:  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.7 11.9H7.3v-1.4h1.4v1.4Zm1.45-5.43-.63.65a2.45 2.45 0 0 0-.82 1.98H7.3v-.35a2.83 2.83 0 0 1 .82-1.98l.87-.88c.32-.31.47-.77.38-1.26a1.4 1.4 0 0 0-.97-1.07 1.4 1.4 0 0 0-1.73.89c-.08.25-.3.45-.57.45h-.21a.6.6 0 0 1-.58-.78 2.8 2.8 0 0 1 2.26-1.99 2.85 2.85 0 0 1 2.71 1.26c.83 1.15.58 2.37-.13 3.08Z'/%3e%3c/svg%3e");
+  --icon-move-message: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cpath fill='black' fill-rule='evenodd' d='M11.8 1.53a.67.67 0 0 0-.94.94L12.4 4H6a.66.66 0 1 0 0 1.33h6.4l-1.54 1.53a.66.66 0 1 0 .94.94l2.66-2.66a.67.67 0 0 0 .17-.7.66.66 0 0 0-.16-.24L11.8 1.53ZM5.14 8.2c.26.26.26.68 0 .94L3.6 10.67H10A.66.66 0 1 1 10 12H3.6l1.54 1.53a.67.67 0 0 1-.94.94L1.53 11.8a.66.66 0 0 1 0-.95L4.2 8.2a.66.66 0 0 1 .94 0Z' clip-rule='evenodd'/%3e%3c/svg%3e");
+
 }
 
 
-/* In the real app styles of message edit container are different */
-/* here just to show that it holds the whole form of the inline compose box */
-.message_edit{
-  margin-right: 120px;
-}
 
 
 .compose-area {
@@ -580,6 +577,12 @@ i.icon-size-22{
   mask-image: var(--icon-help-filled-circle);
   -webkit-mask-image: var(--icon-help-filled-circle);
 }
+.icon-move-message{
+  mask-image: var(--icon-move-message);
+  -webkit-mask-image: var(--icon-move-message);
+}
+
+
 
 .icon-hash {
   background-color: currentColor;
@@ -1111,7 +1114,6 @@ i.icon-size-22{
 
   color: #333333;
 
-  /* max-height: min(300px, 50vh); */
   height: calc(100% - 28px);
   min-height: 50px;
   overflow-y: auto;
@@ -1532,12 +1534,18 @@ i.icon-size-22{
 }
 
 .compose-body__editor-input {
+  /* firefox scrollbar corrections */
   scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
+.dark .compose-body__editor-input {
+  scrollbar-color: hsl(0, 0%, 40%) transparent;
 }
 
 .compose-body__editor-input::-webkit-scrollbar {
   width: 8px;
   border-radius: 12px;
+  background: transparent;
 }
 
 .compose-body__editor-input::-webkit-scrollbar-thumb {
@@ -1547,21 +1555,38 @@ i.icon-size-22{
 }
 
 .compose-body__editor-input::-webkit-scrollbar-track {
-  background: hsl(240, 20%, 98%);
+  background: transparent;
   border-radius: 12px;
 }
 
 .dark .compose-body__editor-input::-webkit-scrollbar-thumb {
   background: hsl(0, 0%, 40%);
-  border-color: hsl(225, 10%, 13%);
+  border-color: hsl(231, 10%, 8.5%);
 }
 
 .dark .compose-body__editor-input::-webkit-scrollbar-track {
-  background: hsl(225, 10%, 13%);
+  background: transparent;
 }
 
 
-/* Inline editor */
+/* --------- Inline editor ------- */
+
+/* In the real app styles of message edit container are different */
+/* here just to show that it holds the whole form of the inline compose box */
+
+.message_edit{
+  margin-right: 120px;
+}
+
+.message_edit_form{
+  margin-bottom: 8px;
+}
+.message_edit_form .compose-body__editor-input{
+  max-height: 40vh;
+}
+
+
+
 .compose-body__editor-inline-actions{
   margin-top: 8px;
   font-family: var(--font-ss3);
@@ -1581,6 +1606,9 @@ i.icon-size-22{
   display: flex;
   gap: 8px;
   align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .action-buttons button{
@@ -1652,6 +1680,10 @@ i.icon-size-22{
   outline: none;
 }
 
+.message-edit-timer{
+  white-space: nowrap;
+}
+
 .help-tooltip-button{
   vertical-align: middle;
   opacity: 0.6;
@@ -1667,6 +1699,15 @@ i.icon-size-22{
 
 .message_edit_save{
   min-width: 68px;
+}
+
+/* For the mobile version we could hide this button or .button-label of it */
+.message_edit_move{
+  display: flex;
+  gap: 1ch;
+  align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
@@ -1703,7 +1744,7 @@ i.icon-size-22{
     padding-left: 8px;
   }
 
-  .compose-send {
+  .compose-send-button {
     width: 30px;
     margin-left: 8px;
   }
@@ -1756,7 +1797,7 @@ i.icon-size-22{
     display: none;
   }
 
-  .compose-send {
+  .compose-send-button {
     width: 32px;
     margin-left: 6px;
   }

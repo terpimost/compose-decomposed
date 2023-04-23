@@ -44,8 +44,13 @@
     overflow: auto;
     max-height: max(25vh, 240px);
     flex-shrink: 0;
+    /* firefox scrollbar corrections */
     scrollbar-width: thin;
+    scrollbar-color: #999 transparent;
 }
+.dark .compose-banner-container {
+    scrollbar-color: hsl(0, 0%, 40%) transparent;
+  }
 
 .compose-banner-container::-webkit-scrollbar {
     width: 8px;
@@ -59,7 +64,7 @@
 }
 
 .compose-banner-container::-webkit-scrollbar-track {
-    background: hsl(231, 41%, 90%);
+    background: transparent;
     border-radius: 12px;
 }
 
@@ -69,7 +74,7 @@
 }
 
 .dark .compose-banner-container::-webkit-scrollbar-track {
-    background: hsl(227deg 10% 9%)
+    background: transparent;
 }
 
 

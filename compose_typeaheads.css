@@ -203,11 +203,7 @@ ul.typeahead-menu li:active {
 .scrollable_list::-webkit-scrollbar {
     width: 8px;
     border-radius: 12px;
-}
-
-.scrollable_list::-webkit-scrollbar-track {
-    background: hsl(240, 20%, 98%); 
-    border-radius: 12px;
+    background: transparent;
 }
 
 .scrollable_list::-webkit-scrollbar-thumb {
@@ -216,13 +212,18 @@ ul.typeahead-menu li:active {
     border: 2px solid hsl(240, 20%, 98%);
 }
 
+.scrollable_list::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 12px;
+}
+
 .dark .scrollable_list::-webkit-scrollbar-thumb {
-    background: hsl(0, 0%, 35%);
+    background: hsl(0, 0%, 40%);
     border-color: hsl(240deg 5% 16%)
 }
 
 .dark .scrollable_list::-webkit-scrollbar-track {
-    background: hsl(240deg 5% 16%);
+    background: transparent;
 }
 
 
