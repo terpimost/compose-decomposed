@@ -1158,6 +1158,16 @@ i.icon-size-22{
   background: hsl(231, 10%, 12%);
 }
 
+/* disablining editing buttons in case it is just read only */
+.compose-body__editor-input[contenteditable="false"]+.compose-body__editor-buttons-container{
+  display: none;
+}
+
+/* If it is edit only and we don't have buttons we should make min height smaller */
+.compose-body__editor:has(.compose-body__editor-input[contenteditable="false"]){
+  min-height: calc(78px - 28px);
+}
+
 .compose-body__editor-buttons_scrollable {
   height: 28px;
   position: relative;
