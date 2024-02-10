@@ -290,6 +290,11 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
   cursor: pointer;
   margin-left: 4px;
   user-select: none;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 124px;
 }
 
 .dark .compose-start__drafts {
@@ -1039,7 +1044,8 @@ i.icon-size-22{
   flex-direction: row;
   flex-grow: 1;
   overflow-y: hidden;
-  overflow-x: visible;
+  /* x used to be visible and I don't remebmer why */
+  overflow-x: hidden;
   padding: 6px 8px 7px;
 }
 
@@ -1750,12 +1756,12 @@ i.icon-size-22{
   .compose-start__drafts {
     text-align: left;
     display: block;
-    white-space: nowrap;
-    text-overflow: clip;
+    text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
     margin-left: 0px;
-    /* height: 28px; */
+    word-break: keep-all;
+    white-space: nowrap;
   }
 
   .compose-body__char-counter {
