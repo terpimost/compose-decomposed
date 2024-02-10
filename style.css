@@ -54,6 +54,7 @@
   border-radius: 9px 9px 0px 0px;
   /* this cuts shadows, so we going to use paddings in deeper containers padding: 7px 8px; */
   display: flex;
+  flex-direction: column;
   max-height: 50vh;
   transition-property: max-height;
   transition-duration: 0.15s;
@@ -398,15 +399,15 @@ input.compose-to__topic-input:placeholder-shown+.compose-to-topic__new-topic {
 }
 
 .drafts-counter {
-  display: none;
-  margin-left: 0.5em;
   opacity: 1;
   font-weight: 500;
+  color: currentColor;
 }
 
 
 .compose-container {
   display: none;
+  transition: all 1s;
 }
 
 .compose-container ::selection {
@@ -1757,10 +1758,6 @@ i.icon-size-22{
     /* height: 28px; */
   }
 
-  .drafts-counter {
-    display: none !important;
-  }
-
   .compose-body__char-counter {
     line-height: 12px;
     font-size: 12px;
@@ -1809,10 +1806,6 @@ i.icon-size-22{
   }
 
   .compose-start__drafts {
-    display: none;
-  }
-
-  .drafts-counter {
     display: none;
   }
 
